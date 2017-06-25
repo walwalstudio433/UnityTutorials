@@ -6,7 +6,10 @@ public class Bird : MonoBehaviour
 {
 	public Rigidbody2D rigidBody;
 	public float jumpPower;
-	public float anumationSpeed;
+	public float maxVelocity;
+	public float velocity;
+	public float gravityScale;
+
 
 	// Use this for initialization
 	void Start () 
@@ -21,22 +24,45 @@ public class Bird : MonoBehaviour
 	}
 
 	public void Jump()
-	{		
+	{			
+		if (transform.position.y >= 1.5f)
+			return;
+
+		if ((rigidBody.constraints & RigidbodyConstraints2D.FreezePositionY) != 0)
+			rigidBody.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+			
 		rigidBody.AddForce (Vector2.up * jumpPower, ForceMode2D.Impulse);
 	}
 
 	void FixedUpdate()
-	{
-		if ((-2 <= transform.position.y && transform.position.y <= 2) && Input.GetMouseButtonDown (0)) 
+	{		
+		if (Input.GetMouseButtonDown (0)) 
 			Jump ();
+
+		float velocity = Mathf.Min (maxVelocity, rigidBody.velocity.y);
+		SetBirdVelocity (velocity);
+		velocity = rigidBody.velocity.y;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.name == "Ceiling" || other.name == "Floor") 
-		{
-			Debug.Log (other.name);
+		if (other.name == "Ceiling") {			
 			rigidBody.velocity = Vector2.zero;
+			SetBirdPosition (1.5f);
+		}else if(other.name == "Floor") {
+			rigidBody.velocity = Vector2.zero;
+			SetBirdPosition (-1.5f);
+			rigidBody.constraints |= RigidbodyConstraints2D.FreezePositionY;
 		}
+	}
+
+	void SetBirdVelocity(float y)
+	{
+		rigidBody.velocity = new Vector2 (0, y);
+	}
+
+	void SetBirdPosition(float y)
+	{
+		transform.position = new Vector2 (0, y);
 	}
 }
