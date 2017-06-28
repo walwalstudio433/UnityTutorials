@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollowerScript : MonoBehaviour {
+public class KillBirdScript : MonoBehaviour {
 
-	public GameObject target;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,6 +11,12 @@ public class CameraFollowerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = Vector3.right * target.transform.position.x + Vector3.back;
+		
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "Player") {
+			coll.gameObject.SendMessage ("Die");
+		}
 	}
 }
