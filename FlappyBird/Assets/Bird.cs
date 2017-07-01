@@ -52,7 +52,8 @@ public class Bird : MonoBehaviour
 	}
 
 	public void Jump()
-	{			
+	{
+		animator.SetTrigger ("onJump");
 		rigidBody.velocity = Vector2.zero;
 		rigidBody.AddForce (Vector2.up * jumpPower, ForceMode2D.Impulse);
 		isJumped = false;
