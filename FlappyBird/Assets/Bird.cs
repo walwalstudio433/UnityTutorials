@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bird : MonoBehaviour 
 {
 	public Background background;
+	public Animator animator;
 	public Rigidbody2D rigidBody;
 	public float jumpPower;
 	public float rotationSpeedForFlying;
@@ -12,6 +13,7 @@ public class Bird : MonoBehaviour
 	public bool isCollided;
 	public bool isJumped;
 	public bool isDead;
+
 
 	public Quaternion deadRotation = Quaternion.Euler (0, 0, -90f);
 
@@ -78,6 +80,7 @@ public class Bird : MonoBehaviour
 	void DeadByFloor()
 	{
 		isDead = true;
+		animator.SetBool ("isDead", true);
 		transform.localRotation = deadRotation;
 		rigidBody.gravityScale = 0;
 	}
