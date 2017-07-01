@@ -69,6 +69,10 @@ public class Bird : MonoBehaviour
 		if (!isCollided && !isDead && other.name.StartsWith ("pillar")) {
 			CollidedByPillar ();
 		} 
+
+		if (other.name == "scoreLine") {
+			animator.SetTrigger ("onScored");
+		}
 	}
 
 	void CollidedByPillar ()
