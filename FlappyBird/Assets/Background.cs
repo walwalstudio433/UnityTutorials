@@ -9,14 +9,13 @@ public class Background : MonoBehaviour
 	public Sprite spriteNight;
 	public GameObject pillarLeft, pillarRight;
 	public float speed, cut;
+	public float pillarInterval;
+	public bool stopped;
 
-	void Start () 
-	{
-		
-	}
-	
 	void Update () 
 	{
+		if (stopped)
+			return;
 		transform.Translate (Vector3.left * Time.deltaTime * speed);
 		if (left.transform.position.x < cut) 
 		{
@@ -43,9 +42,14 @@ public class Background : MonoBehaviour
 		GameObject temp = pillarLeft;
 		pillarLeft = pillarRight;
 		pillarRight = temp;
-		pillarRight.transform.localPosition = pillarLeft.transform.localPosition + new Vector3 (1.5f, 0, 0);
+		pillarRight.transform.localPosition = pillarLeft.transform.localPosition + new Vector3 (pillarInterval, 0, 0);
 		Vector3 newV = pillarRight.transform.localPosition;
 		newV.y = Random.Range (-0.5f, 0.5f);
 		pillarRight.transform.localPosition = newV;
+	}
+
+	public void Stop()
+	{
+		stopped = true;
 	}
 }
