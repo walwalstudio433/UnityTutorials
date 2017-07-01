@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 03c98e0fcd410d04bb06401484a4094a
-timeCreated: 1498388775
+timeCreated: 1498911063
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -18,9 +18,9 @@ TextureImporter:
     21300022: sprites_11
     21300024: game_over
     21300026: sprites_13
-    21300028: sprites_14
+    21300028: number_big_0
     21300030: sprites_15
-    21300032: sprites_16
+    21300032: ready_tab
     21300034: sprites_17
     21300036: sprites_18
     21300038: sprites_19
@@ -38,14 +38,14 @@ TextureImporter:
     21300062: button_ranking
     21300064: button_share
     21300066: sprites_33
-    21300068: sprites_34
-    21300070: sprites_35
-    21300072: sprites_36
-    21300074: sprites_37
-    21300076: sprites_38
-    21300078: sprites_39
-    21300080: sprites_40
-    21300082: sprites_41
+    21300068: number_big_2
+    21300070: number_big_3
+    21300072: number_big_4
+    21300074: number_big_5
+    21300076: number_big_6
+    21300078: number_big_7
+    21300080: number_big_8
+    21300082: number_big_9
     21300084: sprites_42
     21300086: sprites_43
     21300088: sprites_44
@@ -75,7 +75,7 @@ TextureImporter:
     21300136: sprites_68
     21300138: sprites_69
     21300140: coin_silver
-    21300142: sprites_71
+    21300142: number_big_1
     21300144: coin_bronze
     21300146: sprites_73
     21300148: bird_orange_1
@@ -140,6 +140,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -307,7 +315,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_14
+      name: number_big_0
       rect:
         serializedVersion: 2
         x: 496
@@ -333,13 +341,13 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_16
+      name: ready_tab
       rect:
         serializedVersion: 2
-        x: 312
-        y: 409
-        width: 17
-        height: 12
+        x: 291
+        y: 370
+        width: 59
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -450,71 +458,6 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_25
-      rect:
-        serializedVersion: 2
-        x: 310
-        y: 405
-        width: 5
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sprites_26
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 395
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sprites_27
-      rect:
-        serializedVersion: 2
-        x: 292
-        y: 379
-        width: 21
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sprites_28
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 372
-        width: 11
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: sprites_29
-      rect:
-        serializedVersion: 2
-        x: 328
-        y: 379
-        width: 21
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: button_play
       rect:
         serializedVersion: 2
@@ -567,7 +510,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_34
+      name: number_big_2
       rect:
         serializedVersion: 2
         x: 292
@@ -580,7 +523,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_35
+      name: number_big_3
       rect:
         serializedVersion: 2
         x: 306
@@ -593,7 +536,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_36
+      name: number_big_4
       rect:
         serializedVersion: 2
         x: 320
@@ -606,7 +549,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_37
+      name: number_big_5
       rect:
         serializedVersion: 2
         x: 334
@@ -619,7 +562,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_38
+      name: number_big_6
       rect:
         serializedVersion: 2
         x: 292
@@ -632,7 +575,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_39
+      name: number_big_7
       rect:
         serializedVersion: 2
         x: 306
@@ -645,7 +588,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_40
+      name: number_big_8
       rect:
         serializedVersion: 2
         x: 320
@@ -658,7 +601,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_41
+      name: number_big_9
       rect:
         serializedVersion: 2
         x: 334
@@ -1048,7 +991,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprites_71
+      name: number_big_1
       rect:
         serializedVersion: 2
         x: 136

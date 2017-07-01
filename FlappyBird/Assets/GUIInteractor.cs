@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GUIInteractor : MonoBehaviour {
 
 	public int score;
-	public Text scoreBorad;
+	public Text scoreBoard;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +20,6 @@ public class GUIInteractor : MonoBehaviour {
 
 	public void scoreUp(int value){
 		score += value;
-		scoreBorad.text = score.ToString ();
+		scoreBoard.text = score.ToString ();
 	}
 }

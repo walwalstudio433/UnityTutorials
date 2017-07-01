@@ -61,16 +61,16 @@ public class Bird : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.name == "Floor") {
+		if (other.name.StartsWith ("Floor")) {
 			CollidedByPillar ();
 			DeadByFloor ();
 		}
 
-		if (!isCollided && !isDead && other.name.StartsWith ("pillar")) {
+		if (!isCollided && !isDead && other.name.StartsWith ("Pillar")) {
 			CollidedByPillar ();
 		} 
 
-		if (other.name == "scoreLine") {
+		if (other.name == "ScoreLine") {
 			animator.SetTrigger ("onScored");
 		}
 	}

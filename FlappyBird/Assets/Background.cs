@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Background : MonoBehaviour 
 {	
-	public SpriteRenderer left, right;
-	public Sprite spriteDay;
-	public Sprite spriteNight;
+	public GameObject movingRoot;
+	public GameObject floorLeft, floorRight;
 	public GameObject pillarLeft, pillarRight;
 	public float speed, cut;
-	public float pillarInterval;
+	public float floorInterval, pillarInterval;
 	public bool stopped;
 
 	void Update () 
 	{
 		if (stopped)
 			return;
-		transform.Translate (Vector3.left * Time.deltaTime * speed);
-		if (left.transform.position.x < cut) 
+		movingRoot.transform.Translate (Vector3.left * Time.deltaTime * speed);
+		if (floorLeft.transform.position.x < cut) 
 		{
 			returnBackground ();
 		}
@@ -29,12 +28,12 @@ public class Background : MonoBehaviour
 
 	void returnBackground()
 	{
-		SpriteRenderer temp = left;
-		left = right;
-		right = temp;
-		right.transform.localPosition = left.transform.localPosition + new Vector3(1.38f, 0, 0);
-		left.sortingOrder = 0;
-		right.sortingOrder = 1;
+		GameObject temp = floorLeft;
+		floorLeft = floorRight;
+		floorRight = temp;
+		floorRight.transform.localPosition = floorLeft.transform.localPosition + new Vector3(floorInterval, 0, 0);
+		//floorLeft.sortingOrder = 0;
+		//floorRight.sortingOrder = 1;
 	}
 
 	void returnPillar ()
