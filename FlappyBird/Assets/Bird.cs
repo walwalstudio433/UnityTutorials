@@ -73,6 +73,7 @@ public class Bird : MonoBehaviour
 	void CollidedByPillar ()
 	{
 		isCollided = true;
+		animator.SetBool ("isCollided", true);
 		rigidBody.velocity = Vector2.zero;
 		background.Stop ();
 	}
