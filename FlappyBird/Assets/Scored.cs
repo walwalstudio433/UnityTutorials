@@ -12,8 +12,6 @@ public class Scored : StateMachineBehaviour {
 		AudioSource audioSource = animator.gameObject.GetComponent<AudioSource> ();
 		audioSource.clip = scoredSound;
 		audioSource.Play ();
-
-		animator.GetComponent<GUIInteractor> ().scoreUp (10);
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

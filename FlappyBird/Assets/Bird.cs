@@ -16,6 +16,7 @@ public class Bird : MonoBehaviour
 	public bool isCollided;
 	public bool isJumped;
 	public bool isDead;
+	public int unitScore;
 
 	public Quaternion deadRotation = Quaternion.Euler (0, 0, -90f);
 
@@ -94,6 +95,7 @@ public class Bird : MonoBehaviour
 
 		if (other.name == "ScoreLine") {
 			animator.SetTrigger ("onScored");
+			GetComponent<GUIInteractor> ().scoreUp (unitScore);
 		}
 	}
 

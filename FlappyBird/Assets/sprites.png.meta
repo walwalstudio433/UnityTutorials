@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 03c98e0fcd410d04bb06401484a4094a
-timeCreated: 1499004320
+timeCreated: 1499006369
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -51,8 +51,8 @@ TextureImporter:
     21300088: sprites_44
     21300090: sprites_45
     21300092: score_board
-    21300094: coin_white
-    21300096: coin_gold
+    21300094: medal_white
+    21300096: medal_gold
     21300098: sprites_49
     21300100: sprites_50
     21300102: pillar_brown_1
@@ -74,9 +74,9 @@ TextureImporter:
     21300134: bird_red_3
     21300136: sprites_68
     21300138: sprites_69
-    21300140: coin_silver
+    21300140: medal_silver
     21300142: number_big_1
-    21300144: coin_bronze
+    21300144: medal_bronze
     21300146: sprites_73
     21300148: bird_orange_1
     21300150: bird_orange_2
@@ -679,7 +679,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: coin_white
+      name: medal_white
       rect:
         serializedVersion: 2
         x: 121
@@ -692,7 +692,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: coin_gold
+      name: medal_gold
       rect:
         serializedVersion: 2
         x: 121
@@ -978,7 +978,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: coin_silver
+      name: medal_silver
       rect:
         serializedVersion: 2
         x: 112
@@ -1004,7 +1004,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: coin_bronze
+      name: medal_bronze
       rect:
         serializedVersion: 2
         x: 112

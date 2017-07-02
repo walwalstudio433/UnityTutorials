@@ -7,7 +7,10 @@ public class GUIInteractor : MonoBehaviour {
 
 	public GameObject readyPanel, gameOverPanel;
 	public int score;
-	public Text scoreBoard;
+	public Text scoreText, scoreTextInScoreBoard, bestTextInScoreBoard;
+	public Image medal;
+	public int goldCut, silverCut, bronzeCut;
+	public Sprite goldMedal, silverMedal, bronzeMedal;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +24,7 @@ public class GUIInteractor : MonoBehaviour {
 
 	public void scoreUp(int value){
 		score += value;
-		scoreBoard.text = score.ToString ();
+		scoreText.text = score.ToString ();
 	}
 
 	public void HideReadyPanel ()
@@ -32,11 +35,21 @@ public class GUIInteractor : MonoBehaviour {
 	public void ShowGameOverPanel ()
 	{
 		Invoke ("ShowGameOverPanelInner", 0.5f);
-
 	}
 
 	void ShowGameOverPanelInner ()
 	{
+		if (score >= goldCut) {
+			medal.sprite = goldMedal;
+		} else if (score >= silverCut) {
+			medal.sprite = silverMedal;
+		} else if (score >= bronzeCut) {
+			medal.sprite = bronzeMedal;
+		} else {
+			medal.enabled = false;
+		}
+
+		scoreTextInScoreBoard.text = score.ToString ();
 		gameOverPanel.SetActive (true);
 	}
 }
