@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GUIInteractor : MonoBehaviour {
 
+	public GameObject readyPanel;
 	public int score;
 	public Text scoreBoard;
 
@@ -21,5 +22,10 @@ public class GUIInteractor : MonoBehaviour {
 	public void scoreUp(int value){
 		score += value;
 		scoreBoard.text = score.ToString ();
+	}
+
+	public void HideReadyPanel ()
+	{
+		readyPanel.SetActive (false);
 	}
 }

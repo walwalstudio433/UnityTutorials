@@ -8,19 +8,35 @@ public class Bird : MonoBehaviour
 	public Animator animator;
 	public Rigidbody2D rigidBody;
 	public float jumpPower;
+	public float gravityScale;
 	public float rotationSpeedForFlying;
 	public float rotationSpeedForDying;
+	public bool isReady;
 	public bool isCollided;
 	public bool isJumped;
 	public bool isDead;
 
-
 	public Quaternion deadRotation = Quaternion.Euler (0, 0, -90f);
+
+	public void StartPlay()
+	{
+		isReady = false;
+		background.enabled = true;
+		rigidBody.gravityScale = gravityScale;
+		GetComponent<GUIInteractor> ().HideReadyPanel ();
+	}
 
 	void Update () 
 	{
+
+
 		if (isDead)
 			return;
+
+		if (Input.GetMouseButtonDown(0) && isReady) {
+			StartPlay ();
+			return;
+		}
 
 		if (Input.GetMouseButtonDown (0) && !isCollided) 
 			isJumped = true;
