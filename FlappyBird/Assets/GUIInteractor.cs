@@ -12,6 +12,13 @@ public class GUIInteractor : MonoBehaviour {
 	public int goldCut, silverCut, bronzeCut;
 	public Sprite goldMedal, silverMedal, bronzeMedal;
 
+	const string KEY_BEST_SCORE = "BestScore";
+
+	public void DeleteBestScore(){
+		PlayerPrefs.DeleteKey (KEY_BEST_SCORE);
+		bestTextInScoreBoard.text = 0.ToString();
+	}
+
 	// Use this for initialization
 	void Start () {
 		scoreUp (0);
@@ -39,17 +46,34 @@ public class GUIInteractor : MonoBehaviour {
 
 	void ShowGameOverPanelInner ()
 	{
+		SetMedal ();
+		SetBestScore ();
+		SetCurrentScore ();
+		gameOverPanel.SetActive (true);
+	}
+
+	void SetMedal ()
+	{
 		if (score >= goldCut) {
 			medal.sprite = goldMedal;
-		} else if (score >= silverCut) {
+		}else if (score >= silverCut) {
 			medal.sprite = silverMedal;
 		} else if (score >= bronzeCut) {
 			medal.sprite = bronzeMedal;
-		} else {
+		}else {
 			medal.enabled = false;
 		}
+	}
 
+	void SetBestScore ()
+	{
+		int bestScore = Mathf.Max (score, PlayerPrefs.GetInt (KEY_BEST_SCORE));
+		PlayerPrefs.SetInt (KEY_BEST_SCORE, bestScore);
+		bestTextInScoreBoard.text = bestScore.ToString ();
+	}
+
+	void SetCurrentScore ()
+	{
 		scoreTextInScoreBoard.text = score.ToString ();
-		gameOverPanel.SetActive (true);
 	}
 }
