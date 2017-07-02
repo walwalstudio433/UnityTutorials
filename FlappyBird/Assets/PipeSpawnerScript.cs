@@ -10,25 +10,44 @@ public class PipeSpawnerScript : MonoBehaviour {
 	public float howFarFromBird = 3;
 	public float minY = 0;
 	public float maxY = 3;
+	public int maxNumOfPipes = 3;
+
+	Queue<GameObject> queue;
 
 
 	// Use this for initialization
 	void Start () {
+		queue = new Queue<GameObject> (maxNumOfPipes);
 		StartCoroutine (Spawn ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	}
-
 	IEnumerator Spawn() {
 		yield return new WaitForSeconds (duration);
-		GameObject pipe = Instantiate (prefab, transform) as GameObject;
+		StartCoroutine (Spawn ());
+
+		GameObject pipe = dequeueOrCreatePipe ();
+
 		pipe.transform.localPosition = new Vector3 (
 			bird.transform.position.x + howFarFromBird,
 			Random.Range (minY, maxY),
 			0f
 		);
-		StartCoroutine(Spawn ());
+
+	}
+
+	GameObject dequeueOrCreatePipe() {
+		GameObject pipe;
+		if (queue.Count < maxNumOfPipes) {
+			pipe = Instantiate (prefab, transform) as GameObject;
+		} else {
+			pipe = queue.Dequeue ();
+		}
+
+		queue.Enqueue (pipe);
+
+		return pipe;
 	}
 }

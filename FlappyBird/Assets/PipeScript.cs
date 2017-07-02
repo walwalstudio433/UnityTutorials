@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollowerScript : MonoBehaviour {
+public class PipeScript : MonoBehaviour {
 
-	public GameObject target;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,6 +11,10 @@ public class CameraFollowerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += (target.transform.position - transform.position).x * Vector3.right;
+
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		other.SendMessage ("Score");
 	}
 }
