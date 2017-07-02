@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour 
 {
@@ -24,6 +25,11 @@ public class Bird : MonoBehaviour
 		background.enabled = true;
 		rigidBody.gravityScale = gravityScale;
 		GetComponent<GUIInteractor> ().HideReadyPanel ();
+	}
+
+	public void ReloadScene()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 	}
 
 	void Update () 
@@ -105,5 +111,6 @@ public class Bird : MonoBehaviour
 		animator.SetBool ("isDead", true);
 		transform.localRotation = deadRotation;
 		rigidBody.gravityScale = 0;
+		GetComponent<GUIInteractor> ().ShowGameOverPanel ();
 	}
 }

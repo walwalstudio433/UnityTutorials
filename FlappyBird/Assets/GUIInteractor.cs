@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GUIInteractor : MonoBehaviour {
 
-	public GameObject readyPanel;
+	public GameObject readyPanel, gameOverPanel;
 	public int score;
 	public Text scoreBoard;
 
@@ -27,5 +27,16 @@ public class GUIInteractor : MonoBehaviour {
 	public void HideReadyPanel ()
 	{
 		readyPanel.SetActive (false);
+	}
+
+	public void ShowGameOverPanel ()
+	{
+		Invoke ("ShowGameOverPanelInner", 0.5f);
+
+	}
+
+	void ShowGameOverPanelInner ()
+	{
+		gameOverPanel.SetActive (true);
 	}
 }
