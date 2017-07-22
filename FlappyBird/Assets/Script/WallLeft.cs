@@ -19,8 +19,7 @@ public class WallLeft : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("collider");
-
+        //Debug.Log("collider");
         Destroy(other.gameObject);
     }
     
