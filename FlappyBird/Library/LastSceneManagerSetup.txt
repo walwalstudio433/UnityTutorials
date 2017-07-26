@@ -1,4 +1,7 @@
 sceneSetups:
-- path: Assets/jah.unity
+- path: Assets/Ready.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/FlappyBird.unity
+  isLoaded: 1
+  isActive: 0
