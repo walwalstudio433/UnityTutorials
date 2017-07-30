@@ -24,6 +24,7 @@ public class PipeSpawnerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	}
+
 	IEnumerator Spawn() {
 		yield return new WaitForSeconds (duration);
 		StartCoroutine (Spawn ());
@@ -41,7 +42,7 @@ public class PipeSpawnerScript : MonoBehaviour {
 	GameObject dequeueOrCreatePipe() {
 		GameObject pipe;
 		if (queue.Count < maxNumOfPipes) {
-			pipe = Instantiate (prefab, transform) as GameObject;
+			pipe = Instantiate (prefab, transform);
 		} else {
 			pipe = queue.Dequeue ();
 		}

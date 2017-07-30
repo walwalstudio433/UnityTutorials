@@ -5,10 +5,11 @@ using UnityEngine;
 public class Bird : MonoBehaviour {
 	public int rightVelocity = 2;
 	public AudioClip flyAudioClip, deathAudioClip, scoreAudioClip;
+	public GameObject scoreObject;
 
 	Rigidbody2D rb;
 	AudioSource audioSource;
-	bool alive = true;
+	bool isAlive = true;
 	int score = 0;
 
 	// Use this for initialization
@@ -18,15 +19,23 @@ public class Bird : MonoBehaviour {
 		rb.velocity += Vector2.right * rightVelocity;
 	}
 
-	// Update is called once per frame
-	void Update () {
-		if (alive && Input.anyKeyDown) {
-			Fly ();
-		}
-
+	void FixedUpdate () {
 		// Rotation follows the velocity.
 		if (rb.velocity.magnitude > .1)
 			rb.MoveRotation(Mathf.Atan2 (rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg);
+		
+	}
+
+	// Update is called once per frame
+	void Update () {
+		if (!isAlive)
+			return;
+
+		if (Input.GetButtonDown ("Cancel")) {
+			
+		} else if (Input.GetButtonDown ("Fire1")) {
+			Fly ();
+		}
 	}
 
 	void Fly() {
@@ -41,13 +50,14 @@ public class Bird : MonoBehaviour {
 		score++;
 		audioSource.PlayOneShot (scoreAudioClip);
 		Debug.Log ("Score" + score);
+		scoreObject.GetComponent<UnityEngine.UI.Text> ().text = System.String.Format("{0}", score);
 	}
 
 	void Die() {
-		if (!alive) return;
+		if (!isAlive) return;
 
 		// block script in Update()
-		alive = false;
+		isAlive = false;
 
 		// velocity.x = 0
 		rb.velocity -= Vector2.right * rb.velocity.x;
