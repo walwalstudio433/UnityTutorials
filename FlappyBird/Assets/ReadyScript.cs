@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class IngameScript : MonoBehaviour {
-	public GameObject gameMenu;
+public class ReadyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,12 +12,8 @@ public class IngameScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton ("Cancel")) {
-			ActivateGameMenu ();
+		if (Input.anyKeyDown) {
+			SceneManager.LoadScene ("FlappyBird");
 		}
-	}
-
-	void ActivateGameMenu() {
-		gameMenu.SetActive (true);
 	}
 }

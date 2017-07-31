@@ -18,7 +18,7 @@ public class PipeSpawnerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		queue = new Queue<GameObject> (maxNumOfPipes);
-		StartCoroutine (Spawn ());
+//		StartCoroutine (Spawn ());
 	}
 	
 	// Update is called once per frame

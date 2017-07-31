@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bird : MonoBehaviour {
+public class BirdScript : MonoBehaviour {
 	public int rightVelocity = 2;
 	public AudioClip flyAudioClip, deathAudioClip, scoreAudioClip;
-	public GameObject scoreObject;
 
 	Rigidbody2D rb;
 	AudioSource audioSource;
-	bool isAlive = true;
-	int score = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -26,19 +23,7 @@ public class Bird : MonoBehaviour {
 		
 	}
 
-	// Update is called once per frame
-	void Update () {
-		if (!isAlive)
-			return;
-
-		if (Input.GetButtonDown ("Cancel")) {
-			
-		} else if (Input.GetButtonDown ("Fire1")) {
-			Fly ();
-		}
-	}
-
-	void Fly() {
+	public void Fly() {
 		// velocity.y = velocity.x
 		rb.velocity += Vector2.up * (rightVelocity - rb.velocity.y);
 
@@ -47,18 +32,10 @@ public class Bird : MonoBehaviour {
 	}
 
 	void Score() {
-		score++;
 		audioSource.PlayOneShot (scoreAudioClip);
-		Debug.Log ("Score" + score);
-		scoreObject.GetComponent<UnityEngine.UI.Text> ().text = System.String.Format("{0}", score);
 	}
 
 	void Die() {
-		if (!isAlive) return;
-
-		// block script in Update()
-		isAlive = false;
-
 		// velocity.x = 0
 		rb.velocity -= Vector2.right * rb.velocity.x;
 
@@ -72,6 +49,5 @@ public class Bird : MonoBehaviour {
 
 		// play sound
 		audioSource.PlayOneShot (deathAudioClip);
-
 	}
 }
