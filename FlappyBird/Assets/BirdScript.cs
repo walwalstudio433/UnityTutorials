@@ -20,7 +20,6 @@ public class BirdScript : MonoBehaviour {
 		// Rotation follows the velocity.
 		if (rb.velocity.magnitude > .1)
 			rb.MoveRotation(Mathf.Atan2 (rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg);
-		
 	}
 
 	public void Fly() {

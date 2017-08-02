@@ -40,7 +40,7 @@ public class IngameController : MonoBehaviour {
 			break;
 		case GameState.DEAD:
 			if (Input.GetButtonDown ("Fire1")) {
-				if (bird.transform.position.y < -5)
+				if (bird.GetComponent<Rigidbody2D>().velocity.magnitude < .1)
 					RestartGame ();
 			}
 			break;
