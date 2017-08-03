@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MakingHurdle : MonoBehaviour {
-    public  GameObject hurdle ;
+public class MakingTopHurdle : MonoBehaviour
+{
+    public GameObject hurdle;
     public int velocity;
     public int minY;
     public int maxY;
     public static float RepeatRate = 2.0F;
     public static bool changeFlag;
     GameObject instance;
-    
-    void Start () {
+
+    void Start()
+    {
         changeFlag = true;
-       }
-    
+    }
+
     void Update()
     {
-        
-        if (changeFlag) {
-            CancelInvoke(); 
+
+        if (changeFlag)
+        {
+            CancelInvoke();
             InvokeRepeating("func", 1, RepeatRate);
             changeFlag = false;
         }
@@ -29,8 +32,8 @@ public class MakingHurdle : MonoBehaviour {
     {
         Vector3 position = transform.localPosition;
         position.y = Random.Range(minY, maxY);
-        instance = Instantiate(hurdle, position,transform.rotation);
-//        instance = Instantiate(hurdle, transform.localPosition, transform.rotation);
+        instance = Instantiate(hurdle, position, transform.rotation);
+        //        instance = Instantiate(hurdle, transform.localPosition, transform.rotation);
         instance.GetComponent<Rigidbody2D>().AddForce(Vector2.left * velocity);
     }
 
