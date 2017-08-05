@@ -41,6 +41,8 @@ public class Bird : MonoBehaviour {
     }
     void Die()
     {
+        MakingTopHurdle.RepeatRate = 2.0F;
+        MakingHurdle.RepeatRate = 2.0F;
         Application.LoadLevel("Ready"); //얘는 앱 다시 로드하는거구요. 간단하죠
     }
 

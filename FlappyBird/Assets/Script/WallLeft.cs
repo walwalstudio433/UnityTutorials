@@ -38,8 +38,8 @@ public class WallLeft : MonoBehaviour
         }
 
         tScore.GetComponent<Text>().text = score.ToString();
-        if(score%3 == 0) MakingHurdle.faster();
-        if (score % 3 == 0) MakingTopHurdle.faster();
+        if(score%1 == 0) MakingHurdle.faster();
+        if (score % 1 == 0) MakingTopHurdle.faster();
     }
     
 }
