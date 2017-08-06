@@ -8,7 +8,8 @@ public class BestScore : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
+      
 
     }
 	

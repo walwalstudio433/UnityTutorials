@@ -4,12 +4,15 @@ using UnityEngine;
  
 
 public class Bird : MonoBehaviour {
-
     public float rot;
-
+    public AudioClip flySound;
     public AudioClip dieSound;
+    private AudioSource audio2;
     // Use this for initialization
     void Start() {
+        audio2 = GetComponent<AudioSource>();
+        audio2.clip = flySound;
+        
     }
 
     // Update is called once per frame
@@ -17,6 +20,7 @@ public class Bird : MonoBehaviour {
         //Debug.Log("#: " + transform.rotation.z);
         if (Input.GetButton("Fire1"))
         {
+            audio2.Play();
 
             GetComponent<Rigidbody2D>().velocity = new Vector3(0, 5, 0);
             if (transform.rotation.z < 0) {
