@@ -1,0 +1,16 @@
+{
+  "name": "flappybird-server",
+  "version": "1.0.0",
+  "description": "...",
+  "dependencies": {
+    "socket-io": "^1.0.0",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "coffee index.coffee"
+  },
+  "author": "",
+  "license": "ISC"
+}

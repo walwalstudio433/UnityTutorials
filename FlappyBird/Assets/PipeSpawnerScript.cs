@@ -18,7 +18,7 @@ public class PipeSpawnerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		queue = new Queue<GameObject> (maxNumOfPipes);
-//		StartCoroutine (Spawn ());
+		// StartCoroutine ("Spawn");
 	}
 	
 	// Update is called once per frame
@@ -26,8 +26,7 @@ public class PipeSpawnerScript : MonoBehaviour {
 	}
 
 	IEnumerator Spawn() {
-		yield return new WaitForSeconds (duration);
-		StartCoroutine (Spawn ());
+		yield return new WaitForSeconds (duration * Time.timeScale);
 
 		GameObject pipe = dequeueOrCreatePipe ();
 
@@ -36,7 +35,7 @@ public class PipeSpawnerScript : MonoBehaviour {
 			Random.Range (minY, maxY),
 			0f
 		);
-
+		StartCoroutine ("Spawn");
 	}
 
 	GameObject dequeueOrCreatePipe() {

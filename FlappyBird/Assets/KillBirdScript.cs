@@ -3,20 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KillBirdScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Player") {
 			SendMessageUpwards ("ActivateDead");
+		} else if (coll.gameObject.tag == "OtherBird") {
+			coll.gameObject.SendMessage ("Die");
 		}
 	}
 }

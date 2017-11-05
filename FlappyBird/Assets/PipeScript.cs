@@ -15,6 +15,7 @@ public class PipeScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		SendMessageUpwards ("IncrementScore");
+		if (other.gameObject.tag.Contains("Player"))
+			SendMessageUpwards ("IncrementScore");
 	}
 }

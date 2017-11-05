@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BirdScript : MonoBehaviour {
+	public bool isLocal = false;
 	public int rightVelocity = 2;
 	public AudioClip flyAudioClip, deathAudioClip, scoreAudioClip;
 
@@ -10,21 +11,23 @@ public class BirdScript : MonoBehaviour {
 	AudioSource audioSource;
 
 	// Use this for initialization
-	void Start () {
+
+	void Start() {
+	}
+
+	void Awake () {
 		rb = GetComponent<Rigidbody2D> ();
 		audioSource = GetComponent<AudioSource> ();
-		rb.velocity += Vector2.right * rightVelocity;
+		rb.velocity = rightVelocity * Vector2.right;
 	}
 
 	void FixedUpdate () {
-		// Rotation follows the velocity.
 		if (rb.velocity.magnitude > .1)
 			rb.MoveRotation(Mathf.Atan2 (rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg);
 	}
 
 	public void Fly() {
-		// velocity.y = velocity.x
-		rb.velocity += Vector2.up * (rightVelocity - rb.velocity.y);
+		rb.velocity = rightVelocity * (Vector2.up + Vector2.right);
 
 		// play sound
 		audioSource.PlayOneShot(flyAudioClip);
@@ -41,6 +44,9 @@ public class BirdScript : MonoBehaviour {
 		// stop animation
 		GetComponent<Animator>().enabled = false;
 
+		if (tag != "Player")
+			return;
+
 		// stop respawn.
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Respawn")) {
 			go.GetComponent<MonoBehaviour> ().StopAllCoroutines ();
@@ -48,5 +54,6 @@ public class BirdScript : MonoBehaviour {
 
 		// play sound
 		audioSource.PlayOneShot (deathAudioClip);
+
 	}
 }
